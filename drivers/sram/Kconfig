@@ -1,0 +1,7 @@
+# SPDX-License-Identifier: Apache-2.0
+
+config BSP_SRAM
+	bool "External SRAM (FMC) BSP layer"
+	default y
+	help
+	  外部 SRAM 初始化与自检,为波形引擎提供 DMA 缓冲区。

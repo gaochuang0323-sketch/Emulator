@@ -1,0 +1,33 @@
+# west manifest —— BMS 故障模拟装置
+#
+# T2 workspace 拓扑:本仓库是应用主体,Zephyr 本体与 HAL 作为依赖由 west 拉取到 deps/。
+# 换 MCU 时:在 projects 中增删对应厂商 HAL(如 hal_stm32 换成其他),app/ 不动。
+#
+# 使用:
+#   west init -l .        # 以本仓库为 manifest 初始化 workspace
+#   west update           # 拉取下方 projects 到 deps/
+manifest:
+  self:
+    # 本应用仓库在 workspace 中的路径
+    path: bms-emulator
+
+  remotes:
+    - name: zephyrproject-rtos
+      url-base: https://github.com/zephyrproject-rtos
+
+  projects:
+    # Zephyr 本体。version 请按团队验证过的稳定版锁定(示例 v4.1.0)。
+    - name: zephyr
+      remote: zephyrproject-rtos
+      revision: v4.1.0
+      import:
+        # 只导入本项目实际用到的 HAL / 模块,避免全量拉取。
+        # 换 MCU 时在此增删对应 HAL 名称。
+        name-allowlist:
+          - hal_stm32        # STM32H743 SoC HAL(含 FDCAN / FMC / ETH)
+          - cmsis            # ARM CMSIS
+          - littlefs         # 文件系统(数据记录,可选)
+          - mbedtls          # 网络加密(可选)
+
+  # 依赖统一放到 workspace 根的 deps/ 下,不与应用源码混放。
+  # west 通过 self.path 与各 project 的默认 path 组织目录。

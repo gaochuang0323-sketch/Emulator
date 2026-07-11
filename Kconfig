@@ -1,0 +1,25 @@
+# SPDX-License-Identifier: Apache-2.0
+#
+# 项目顶层 Kconfig —— 汇入自定义 BSP 驱动的 Kconfig,并声明应用级配置项。
+
+# 引入 out-of-tree BSP 驱动的 Kconfig 树
+rsource "drivers/Kconfig"
+
+menu "BMS Emulator Application"
+
+config BMS_VOLTAGE_CHANNELS
+	int "电压模拟通道数 (B1~B13)"
+	default 13
+	help
+	  13 串模组对应 13 路独立电压模拟通道(DAC81416 提供 16 通道)。
+
+config BMS_TEMP_CHANNELS
+	int "温度模拟通道数"
+	default 7
+	help
+	  7 路独立温度(NTC 阻值)模拟通道。
+
+endmenu
+
+# 继承 Zephyr 主 Kconfig
+source "Kconfig.zephyr"

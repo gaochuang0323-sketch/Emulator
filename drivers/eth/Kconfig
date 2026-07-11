@@ -1,0 +1,7 @@
+# SPDX-License-Identifier: Apache-2.0
+
+config BSP_ETH
+	bool "Ethernet PHY BSP layer"
+	default y
+	help
+	  以太网 PHY 复位等板级操作封装,配合 Zephyr Networking 子系统使用。

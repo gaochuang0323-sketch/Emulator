@@ -1,0 +1,9 @@
+# SPDX-License-Identifier: Apache-2.0
+
+config BSP_DAC81416
+	bool "TI DAC81416 16-channel 16-bit DAC (custom BSP driver)"
+	default y
+	depends on SPI && GPIO
+	help
+	  16 通道 16 位精密 DAC,SPI 接口 + LDAC 同步锁存。
+	  换 DAC 时:新增 drivers/<newdac>/ 驱动 + 关闭本项,上层 voltage_sim 不动。

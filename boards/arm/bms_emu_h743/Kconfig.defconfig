@@ -1,0 +1,8 @@
+# SPDX-License-Identifier: Apache-2.0
+
+if BOARD_BMS_EMU_H743
+
+config BOARD
+	default "bms_emu_h743"
+
+endif # BOARD_BMS_EMU_H743

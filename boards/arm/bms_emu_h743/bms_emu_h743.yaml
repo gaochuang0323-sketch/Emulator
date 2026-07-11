@@ -1,0 +1,16 @@
+identifier: bms_emu_h743
+name: BMS Emulator STM32H743 Board
+type: mcu
+arch: arm
+toolchain:
+  - zephyr
+  - gnuarmemb
+ram: 512
+flash: 2048
+supported:
+  - gpio
+  - spi
+  - can
+  - counter
+  - netif:eth
+vendor: st

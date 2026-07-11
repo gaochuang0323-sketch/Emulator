@@ -1,0 +1,5 @@
+# SPDX-License-Identifier: Apache-2.0
+
+config BOARD_BMS_EMU_H743
+	bool "BMS Emulator STM32H743 board"
+	depends on SOC_STM32H743XX

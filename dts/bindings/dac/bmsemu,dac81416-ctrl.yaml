@@ -1,0 +1,23 @@
+# SPDX-License-Identifier: Apache-2.0
+
+description: |
+  DAC81416 带外控制引脚(RESET / LDAC 同步锁存 / ALARM 报警)。
+  由自定义 BSP 驱动 bsp_dac81416 使用,与 SPI 数据通道分离。
+
+compatible: "bmsemu,dac81416-ctrl"
+
+properties:
+  reset-gpios:
+    type: phandle-array
+    required: true
+    description: DAC 硬件复位引脚。
+
+  ldac-gpios:
+    type: phandle-array
+    required: true
+    description: LDAC 同步锁存引脚,拉低即同时更新所有通道输出(13 路同步 <100us)。
+
+  alarm-gpios:
+    type: phandle-array
+    required: true
+    description: DAC 报警输出引脚,由 dac_safety 监视。

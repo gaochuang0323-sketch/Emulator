@@ -1,0 +1,7 @@
+# SPDX-License-Identifier: Apache-2.0
+#
+# 自定义 BSP 驱动的 Kconfig 汇总。
+rsource "dac81416/Kconfig"
+rsource "can/Kconfig"
+rsource "eth/Kconfig"
+rsource "sram/Kconfig"

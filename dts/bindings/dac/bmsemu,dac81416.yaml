@@ -1,0 +1,7 @@
+# SPDX-License-Identifier: Apache-2.0
+
+description: TI DAC81416 16-channel 16-bit precision DAC (SPI)
+
+compatible: "bmsemu,dac81416"
+
+include: [spi-device.yaml]

@@ -1,0 +1,8 @@
+# SPDX-License-Identifier: Apache-2.0
+
+config BSP_CAN
+	bool "CAN transceiver BSP layer"
+	default y
+	depends on CAN
+	help
+	  CAN 收发 BSP 封装,底层接 Zephyr CAN 子系统,承载 can_protocol 控制帧。

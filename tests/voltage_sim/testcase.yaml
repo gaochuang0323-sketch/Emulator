@@ -1,0 +1,10 @@
+# SPDX-License-Identifier: Apache-2.0
+#
+# twister 用例:在 PC(native_sim)上验证 voltage_sim 纯逻辑,无需硬件。
+tests:
+  bms.voltage_sim:
+    platform_allow:
+      - native_sim
+    tags:
+      - voltage_sim
+      - app

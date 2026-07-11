@@ -1,0 +1,18 @@
+# west workspace 拉取的依赖(不提交源码)
+/deps/
+.west/
+
+# 构建产物
+build/
+build-*/
+*.o
+*.a
+*.elf
+*.bin
+*.hex
+*.map
+
+# IDE
+.vscode/
+.idea/
+*.swp
